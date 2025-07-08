@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 class TxtField {
   final String hintText;
   final bool pass;
-  const TxtField({super.key, required this.hintText, required this.pass});
+  const TxtField({
+    required this.hintText,
+    required this.pass,
+  });
 }
 
 class Signup extends StatelessWidget {
