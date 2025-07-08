@@ -9,9 +9,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext cvcontext) {
-    return MaterialApp(
-      home: Home(),
-    );
+    return MaterialApp(home: Home());
   }
 }
 
@@ -20,10 +18,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text("hello"),
-      ),
-    );
+    return const Scaffold(body: Center(child: Text("helo")));
   }
 }
