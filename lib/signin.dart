@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/button_extra.dart';
+import 'package:myapp/custom_text_field.dart';
+import 'package:myapp/signup.dart';
+
 class Signin extends StatelessWidget {
   const Signin({super.key});
 
   @override
   Widget build(BuildContext context) {
     final mediaQueryData = MediaQuery.of(context);
-    final screenWidth = mediaQueryData.size.width;
+    //final screenWidth = mediaQueryData.size.width;
     final screenHeight = mediaQueryData.size.height;
 
     return Scaffold(
@@ -28,69 +32,16 @@ class Signin extends StatelessWidget {
                 ),
               ),
               SizedBox(height: screenHeight * 0.05),
-              SizedBox(
-                width: screenWidth * 0.85,
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "Username",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ),
-              ),
+              CustomTextField(hintText: "Email", obscureText: false),
               SizedBox(height: screenHeight * 0.02),
-              SizedBox(
-                width: screenWidth * 0.85,
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "Password",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ),
-              ),
+              CustomTextField(hintText: "Password", obscureText: true),
 
               SizedBox(height: screenHeight * 0.02),
-              ElevatedButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                  shape: WidgetStatePropertyAll(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  fixedSize: WidgetStatePropertyAll(
-                    Size(screenWidth * 0.85, screenHeight * 0.09),
-                  ),
-                  backgroundColor: WidgetStatePropertyAll(
-                    const Color.fromARGB(255, 53, 115, 238),
-                  ),
-                ),
-                child: const Text(
-                  "Sign in",
-                  style: TextStyle(fontSize: 16, color: Colors.white),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Text(
-                    "Don't have an account?",
-                    style: TextStyle(color: Color.fromARGB(255, 174, 170, 170)),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      "Sign up",
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 53, 115, 238),
-                      ),
-                    ),
-                  ),
-                ],
+              BlueLoginButton(buttonText: 'Sign in'),
+              CustomBottomPrompt(
+                promptText: "Dont Have an account?",
+                buttonText: "Sign up",
+                navigateTo: Signup(),
               ),
             ],
           ),
