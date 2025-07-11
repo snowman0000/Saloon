@@ -41,7 +41,7 @@ class CustomBottomPrompt extends StatelessWidget {
 class BlueLoginButton extends StatelessWidget {
   final String buttonText;
   final Widget? navigateTo;
-  const BlueLoginButton({super.key, required this.buttonText, this.navigateTo});
+  const BlueLoginButton({super.key, required this.buttonText, this.navigateTo, required Future<Null> Function() onPressed});
   @override
   Widget build(BuildContext context) {
     final mediaQueryData = MediaQuery.of(context);

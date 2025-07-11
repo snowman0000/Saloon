@@ -8,7 +8,7 @@ class CustomTextField extends StatelessWidget {
     super.key,
     required this.hintText,
     required this.obscureText,
-    this.controller
+    this.controller,
   });
 
   @override
@@ -18,6 +18,7 @@ class CustomTextField extends StatelessWidget {
     return SizedBox(
       width: screenWidth * 0.85,
       child: TextField(
+        controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(
           hintText: hintText,
@@ -27,5 +28,3 @@ class CustomTextField extends StatelessWidget {
     );
   }
 }
-
-
