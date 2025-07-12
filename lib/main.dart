@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/homepage.dart';
 import 'package:myapp/signin.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:myapp/signup.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -13,8 +14,8 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override 
+  @override
   Widget build(BuildContext cvcontext) {
-    return MaterialApp(home: Homepage());
+    return MaterialApp(home: Signup());
   }
 }

@@ -57,19 +57,20 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDBQAHc5jro0VWfLSa3AFr4t0B2SLyAPMs',
-    appId: '1:481548549402:android:362c8104cf8633fc2840a3',
-    messagingSenderId: '481548549402',
-    projectId: 'salon-77356',
-    storageBucket: 'salon-77356.firebasestorage.app',
+    apiKey: 'AIzaSyCxK5k-N36gycs62mZ3g_b9MLeViDu9Ttg',
+    appId: '1:181414733708:android:828164f6d5464f7716d8a9',
+    messagingSenderId: '181414733708',
+    projectId: 'salon-base',
+    storageBucket: 'salon-base.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyChr-Y0wyY3Q_t-NEq-57daIOhmFk9ztVI',
-    appId: '1:481548549402:ios:fe4650a1cff19b072840a3',
-    messagingSenderId: '481548549402',
-    projectId: 'salon-77356',
-    storageBucket: 'salon-77356.firebasestorage.app',
-    iosBundleId: 'com.example.salon',
+    apiKey: 'AIzaSyA7TT5iUP7-fZ7LvAGEcOi-sUeme_wL5IU',
+    appId: '1:181414733708:ios:58ac946d968dec0e16d8a9',
+    messagingSenderId: '181414733708',
+    projectId: 'salon-base',
+    storageBucket: 'salon-base.firebasestorage.app',
+    iosBundleId: 'com.example.myapp',
   );
+
 }

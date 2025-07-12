@@ -16,7 +16,7 @@ class _SignupState extends State<Signup> {
 
   final passwordController = TextEditingController();
 
-  Future<void> createUserWithPassword() async {
+  Future<void> createUserWithEmailAndPassword() async {
     try {
       final userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
@@ -24,7 +24,6 @@ class _SignupState extends State<Signup> {
             password: passwordController.text.trim(),
           );
 
-      print(userCredential.user?.uid);
       print(userCredential);
     } on FirebaseAuthException catch (e) {
       debugPrint(e.message);
@@ -85,7 +84,8 @@ class _SignupState extends State<Signup> {
                 BlueLoginButton(
                   buttonText: "Sign up",
                   onPressed: () async {
-                    await createUserWithPassword();
+                    print("Sign up button pressed");
+                    await createUserWithEmailAndPassword();
                   },
                 ),
                 const SizedBox(height: 20),

@@ -16,7 +16,7 @@ class _SigninState extends State<Signin> {
   final passwordController = TextEditingController();
  
 
-  Future<void> signInWithPassword() async {
+  Future<void> signInWithEmailAndPassword() async {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text.trim(),
