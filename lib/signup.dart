@@ -26,7 +26,20 @@ class _SignupState extends State<Signup> {
 
       print(userCredential);
     } on FirebaseAuthException catch (e) {
-      debugPrint(e.message);
+      showDialog(
+        context: context,
+        builder:
+            (context) => AlertDialog(
+              title: Text("Signup Failed"),
+              content: Text(e.message ?? "Unknown error"),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: Text("OK"),
+                ),
+              ],
+            ),
+      );
     }
   }
 
@@ -84,10 +97,17 @@ class _SignupState extends State<Signup> {
                 BlueLoginButton(
                   buttonText: "Sign up",
                   onPressed: () async {
-                    print("Sign up button pressed");
+                    debugPrint(emailController.text);
+                    debugPrint(passwordController.text);
+
                     await createUserWithEmailAndPassword();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Signin()),
+                    );
                   },
                 ),
+
                 const SizedBox(height: 20),
                 CustomBottomPrompt(
                   promptText: "Already have an account?",
@@ -102,4 +122,10 @@ class _SignupState extends State<Signup> {
       ),
     );
   }
+}
+
+@override
+Widget build(BuildContext context) {
+  // TODO: implement build
+  throw UnimplementedError();
 }
