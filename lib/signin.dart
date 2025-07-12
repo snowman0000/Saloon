@@ -14,16 +14,15 @@ class Signin extends StatefulWidget {
 class _SigninState extends State<Signin> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
- 
 
-  Future<void> signInWithPassword() async {
+  Future<void> signInWithEmailAndPassword() async {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
     } on FirebaseAuthException catch (e) {
-      debugPrint(e.message);
+      print("Error: ${e.code} - ${e.message}");
     }
   }
 
@@ -33,12 +32,10 @@ class _SigninState extends State<Signin> {
     emailController.dispose();
     passwordController.dispose();
   }
- 
-  
 
   @override
   Widget build(BuildContext context) {
-     final mediaQueryData = MediaQuery.of(context);
+    final mediaQueryData = MediaQuery.of(context);
     final screenHeight = mediaQueryData.size.height;
     return Scaffold(
       body: SafeArea(
@@ -74,9 +71,11 @@ class _SigninState extends State<Signin> {
               SizedBox(height: screenHeight * 0.02),
               BlueLoginButton(
                 buttonText: "Sign in",
-                onPressed: () {
-                  return Future.value();
+                onPressed: () async {
+                  await signInWithEmailAndPassword();
                 },
+
+                // this returns Future<dynamic>,
               ),
               CustomBottomPrompt(
                 promptText: "Dont Have an account?",
